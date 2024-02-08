@@ -5,15 +5,17 @@ import './App.css';
 import CarouselEffect from './Components/Carousel/CarouselEffect';
 import Category from './Components/Category/Category';
 import Product from './Components/Product/Product';
+import Routing from './Router';
 
 
   function App() {
     return (
       <>
-      <Header/>
+      <Routing/>
+      {/* <Header/>
       <CarouselEffect/>
       <Category/>
-      <Product/>
+      <Product/> */}
       </>
     );
   }

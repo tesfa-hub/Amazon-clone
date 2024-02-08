@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import ProductCard from './ProductCard'
 import classes from './Product.module.css'
-// import Loader from "../Loader/Loder"
+import Loader from "../Loader/Loder"
 
 
 function Product() {
@@ -15,22 +15,23 @@ function Product() {
         setIsLoading(false)
       }).catch((err)=>{
         console.log(err)
-        // setIsLoading(false)
+        setIsLoading(false)
       })
     }, [])
     
   return (
 
   <>
-  {/* { */}
-    {/* // isLoading?(<Loader/>) : ( <section className={classes.products_container}> */}
+  {isLoading?<Loader/>:(   <section className={classes.products_container}> 
       {
           products?.map((singleProduct)=>{
             return  <ProductCard renderAdd={true} product={singleProduct} key={singleProduct.id}/>
                 })
       }
-  {/* //    </section>) */}
-  {/* // } */}
+    </section>)
+    }
+   
+  
   </>
 
   )
