@@ -1,14 +1,22 @@
-  import React from 'react'
+  import React, { useContext } from 'react'
   // import "./Header.css";
   import { BsSearch } from "react-icons/bs";
   import { SlLocationPin } from "react-icons/sl";
   import { BiCart } from "react-icons/bi";
   import LowerHeader from './LowerHeader.js'
   import classes from './Header.module.css'
-
+import { DataContext } from '../Components/DataProvider/DataProvider.jsx';
+import { Link } from 'react-router-dom';
+ 
 
 
 function Header() {
+  // const[state,dispatch]=useContext(DataContext)
+  const [{ user, basket }, dispatch] = useContext(DataContext);
+  const totalItem = basket?.reduce((amount, item) => {
+    return item.amount + amount;
+  }, 0);
+  // console.log(basket);
   return (
     
       <div className={classes.fixed}>
@@ -20,11 +28,11 @@ function Header() {
       
         
       <div className={classes.logo__container}>
-      * <a href="">
+       <Link to="/">
                   <img 
                    src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
  alt="amazon logo"/>
-       </a> 
+       </Link> 
             <div  className={classes.delivery}>
               <span>
                 <SlLocationPin/>
@@ -56,7 +64,7 @@ function Header() {
                 <option value="">EN</option>
               </select>
             </a>
-            <a href="" >
+            <Link to={!user&& "/auth"} >
             
                   
                   
@@ -66,15 +74,15 @@ function Header() {
                     <span>Account & Lists</span>
                   
               
-            </a>
-            <a href="/orders">
+            </Link>
+            <Link to="/orders">
               <p>Returns</p>
               <span>& Orders</span>
-            </a>
-            <a to="/cart" className={classes.cart}>
+            </Link>
+            <Link to="/cart" className={classes.cart}>
               <BiCart size={35} />
-              <span>0</span>
-            </a>
+              <span>{totalItem}</span>
+            </Link>
       </div>
       </div>
       <LowerHeader/>
