@@ -1,5 +1,5 @@
 import React from 'react'
-import { AiOutlineMenu } from "react-icons/ai";
+import { RxDropdownMenu } from "react-icons/rx";
 import classes from "./Header.module.css"
 
 function LowerHeader() {
@@ -9,7 +9,7 @@ function LowerHeader() {
 
         <ul>
             <li>
-            <AiOutlineMenu />
+            <RxDropdownMenu/>
                 <p>All</p>
             </li>
             <li>Today's Deals</li>
@@ -18,6 +18,7 @@ function LowerHeader() {
             <li>Gift Cards</li>
             <li>Sell</li>
         </ul>
+      
     </div>
   )
 }

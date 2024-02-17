@@ -13,7 +13,8 @@ function Product() {
       .then((res)=>{
         setProducts(res.data)
         setIsLoading(false)
-      }).catch((err)=>{
+      })
+      .catch((err)=>{
         console.log(err)
         setIsLoading(false)
       })

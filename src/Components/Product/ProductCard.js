@@ -1,4 +1,4 @@
-import React, { useContext }  from 'react'
+import React, { useContext, useEffect }  from 'react'
 import Rating from '@mui/material/Rating'
 import CurrencyFormat from '../CurrencyFormat/CurrencyFormat'
 import classes from './Product.module.css'
@@ -14,8 +14,6 @@ function ProductCard(
       const [state,dispatch]=useContext(DataContext)
       
      
-
-
       const addToCart = ()=>{
         dispatch({
             type:Type.ADD_TO_BASKET,

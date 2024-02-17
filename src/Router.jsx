@@ -11,22 +11,23 @@ import Payment from "./Pages/Payment/Payment";
 import Orders from "./Pages/Orders/Orders";
 import Cart from "./Pages/Cart/Cart";
 import Results from "./Pages/Results/Results";
-import ProductDetail from "./Pages/ProductDetail/ProductDetail";
 // import ProductDetail from "./Pages/ProductDetail/ProductDetail";
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
-// import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
+import ProductDetail from "./Pages/ProductDetail/ProductDetail";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute";
 
-// const stripePromise = loadStripe(
-//   "pk_test_51OU6YoIrgvX7vjwlwFwZFFmBbuXRo77ewG49UZBndLITKEtINgOsTCmKbx4dvva5opJQYlTggPJ3SuK3HpprL1Pj006REMjwGf"
-// );
+const stripePromise = loadStripe(
+  "pk_test_51Ojv9LH6zCsmlg8b5Qi5c8tiowZ22aAqGk7aScW4OW6hKKm66DA5bDsUeFoTBX6W0Te0Kj6yFF7novC6401afH2p00kxZIpiK4"
+);
+
 function Routing() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/auth" element={<Auth />} />
-        {/* <Route
+         <Route
           path="/payments"
           element={
             <ProtectedRoute
@@ -38,8 +39,8 @@ function Routing() {
               </Elements>
             </ProtectedRoute>
           }
-        /> */}
-        {/* <Route
+        /> 
+         <Route
           path="/orders"
           element={
             <ProtectedRoute
@@ -49,7 +50,7 @@ function Routing() {
               <Orders />
             </ProtectedRoute>
           }
-        /> */}
+        /> 
         <Route path="/category/:categoryName" element={<Results />} />
         <Route path="/products/:productId" element={<ProductDetail/>} />
         <Route path="/cart" element={<Cart />} />
